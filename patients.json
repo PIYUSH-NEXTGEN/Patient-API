@@ -1,1 +1,152 @@
-{"P001": {"name": "string", "city": "bhopal", "age": 18, "gender": "Male", "height": 180.0, "weight": 50.0, "bmi": 0.0, "verdict": "Underweight"}, "P002": {"name": "Ravi Mehta", "city": "Mumbai", "age": 35, "gender": "male", "height": 1.75, "weight": 85, "bmi": 27.76, "verdict": "Overweight"}, "P003": {"name": "Sneha Kulkarni", "city": "Pune", "age": 22, "gender": "female", "height": 1.6, "weight": 45, "bmi": 17.58, "verdict": "Underweight"}, "P004": {"name": "Arjun Verma", "city": "Bangalore", "age": 40, "gender": "male", "height": 1.8, "weight": 95, "bmi": 29.32, "verdict": "Overweight"}, "P005": {"name": "Neha Sinha", "city": "Kolkata", "age": 30, "gender": "female", "height": 1.55, "weight": 75, "bmi": 31.22, "verdict": "Obese"}}
+{
+  "P001": {
+    "name": "Aman Sharma",
+    "city": "Bhopal",
+    "age": 18,
+    "gender": "Male",
+    "height": 1.80,
+    "weight": 65.0,
+    "bmi": 20.06,
+    "verdict": "Normal weight"
+  },
+  "P002": {
+    "name": "Ravi Mehta",
+    "city": "Mumbai",
+    "age": 35,
+    "gender": "Male",
+    "height": 1.75,
+    "weight": 85.0,
+    "bmi": 27.76,
+    "verdict": "Overweight"
+  },
+  "P003": {
+    "name": "Sneha Kulkarni",
+    "city": "Pune",
+    "age": 22,
+    "gender": "Female",
+    "height": 1.60,
+    "weight": 45.0,
+    "bmi": 17.58,
+    "verdict": "Underweight"
+  },
+  "P004": {
+    "name": "Arjun Verma",
+    "city": "Bangalore",
+    "age": 40,
+    "gender": "Male",
+    "height": 1.80,
+    "weight": 95.0,
+    "bmi": 29.32,
+    "verdict": "Overweight"
+  },
+  "P005": {
+    "name": "Neha Sinha",
+    "city": "Kolkata",
+    "age": 30,
+    "gender": "Female",
+    "height": 1.55,
+    "weight": 75.0,
+    "bmi": 31.22,
+    "verdict": "Obese"
+  },
+  "P006": {
+    "name": "Aditya Patil",
+    "city": "Mumbai",
+    "age": 30,
+    "gender": "Male",
+    "height": 1.75,
+    "weight": 70.0,
+    "bmi": 22.86,
+    "verdict": "Normal weight"
+  },
+  "P007": {
+    "name": "Priya Joshi",
+    "city": "Indore",
+    "age": 26,
+    "gender": "Female",
+    "height": 1.63,
+    "weight": 52.0,
+    "bmi": 19.57,
+    "verdict": "Normal weight"
+  },
+  "P008": {
+    "name": "Karan Malhotra",
+    "city": "Delhi",
+    "age": 29,
+    "gender": "Male",
+    "height": 1.78,
+    "weight": 82.0,
+    "bmi": 25.88,
+    "verdict": "Overweight"
+  },
+  "P009": {
+    "name": "Ananya Gupta",
+    "city": "Jaipur",
+    "age": 24,
+    "gender": "Female",
+    "height": 1.68,
+    "weight": 58.0,
+    "bmi": 20.55,
+    "verdict": "Normal weight"
+  },
+  "P010": {
+    "name": "Rahul Singh",
+    "city": "Lucknow",
+    "age": 45,
+    "gender": "Male",
+    "height": 1.72,
+    "weight": 98.0,
+    "bmi": 33.13,
+    "verdict": "Obese"
+  },
+  "P011": {
+    "name": "Meera Nair",
+    "city": "Chennai",
+    "age": 32,
+    "gender": "Female",
+    "height": 1.58,
+    "weight": 49.0,
+    "bmi": 19.63,
+    "verdict": "Normal weight"
+  },
+  "P012": {
+    "name": "Vikram Rao",
+    "city": "Hyderabad",
+    "age": 38,
+    "gender": "Male",
+    "height": 1.83,
+    "weight": 88.0,
+    "bmi": 26.28,
+    "verdict": "Overweight"
+  },
+  "P013": {
+    "name": "Ishita Kapoor",
+    "city": "Chandigarh",
+    "age": 27,
+    "gender": "Female",
+    "height": 1.65,
+    "weight": 60.0,
+    "bmi": 22.04,
+    "verdict": "Normal weight"
+  },
+  "P014": {
+    "name": "Rohan Deshmukh",
+    "city": "Nagpur",
+    "age": 34,
+    "gender": "Male",
+    "height": 1.74,
+    "weight": 68.0,
+    "bmi": 22.46,
+    "verdict": "Normal weight"
+  },
+  "P015": {
+    "name": "Kavya Reddy",
+    "city": "Visakhapatnam",
+    "age": 21,
+    "gender": "Female",
+    "height": 1.61,
+    "weight": 43.0,
+    "bmi": 16.59,
+    "verdict": "Underweight"
+  }
+}

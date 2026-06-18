@@ -41,7 +41,8 @@ class PatientUpdate(BaseModel):
     name: Annotated[Optional[str], Field(default=None)]
     city: Annotated[Optional[str], Field(default=None)]
     age: Annotated[Optional[int], Field(default=None, gt=0)]
-    gender: Annotated[Optional[Literal['male', 'female']], Field(default=None)]
+    # Keep gender options consistent with the main Patient model
+    gender: Annotated[Optional[Literal['Male', 'Female', 'Others']], Field(default=None)]
     height: Annotated[Optional[float], Field(default=None, gt=0)]
     weight: Annotated[Optional[float], Field(default=None, gt=0)]
 
@@ -89,18 +90,25 @@ def view_patient(
 def sort_patients(sort_by: str=Query(..., description='Sort on the basis of height, weight or BMI.'),
                   order: str=Query('asc', description='Order of sorting either ascending or descending')):
 
-    valid_fields = ['height', 'weight', 'BMI']
+    # Normalize inputs to be case-insensitive
+    sort_key = sort_by.lower()
+    order_key = order.lower()
 
-    if sort_by not in valid_fields:
+    valid_fields = ['height', 'weight', 'bmi']
+
+    if sort_key not in valid_fields:
         raise HTTPException(status_code=400, detail=f"Invalid sort_by value. Must be one of {valid_fields}")
 
-    if order not in ['aesc', 'desc']:
-        raise HTTPException(status_code=400, detail="Invalid order value. Must be 'aesc' or 'desc'")
+    # Accept the correct order values 'asc' and 'desc'
+    if order_key not in ['asc', 'desc']:
+        raise HTTPException(status_code=400, detail="Invalid order value. Must be 'asc' or 'desc'")
 
     data = load_data()
 
-    sort_order = True if order == 'aesc' else False
-    sorted_data = sorted(data.values(), key=lambda x: x.get(sort_by, 0), reverse=sort_order)
+    # reverse=True for descending order, False for ascending
+    reverse_flag = True if order_key == 'desc' else False
+    # Use the normalized sort_key to access record fields
+    sorted_data = sorted(data.values(), key=lambda x: x.get(sort_key, 0), reverse=reverse_flag)
 
     return sorted_data
 

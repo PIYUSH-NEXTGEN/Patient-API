@@ -1,5 +1,4 @@
 from typing import Dict, Any, Optional
-
 import pandas as pd
 import requests
 import streamlit as st
@@ -40,12 +39,6 @@ def set_styles() -> None:
         unsafe_allow_html=True,
     )
 
-
-###############
-# API Helpers
-###############
-
-
 def check_api() -> bool:
     """Return True if backend is reachable."""
     try:
@@ -54,14 +47,12 @@ def check_api() -> bool:
     except requests.RequestException:
         return False
 
-
 def get_patient(patient_id: str) -> Dict[str, Any]:
     try:
         resp = requests.get(f"{BASE_URL}/patients/{patient_id}")
         return {"ok": resp.ok, "status_code": resp.status_code, "data": resp.json()}
     except requests.RequestException as e:
         return {"ok": False, "error": str(e)}
-
 
 def create_patient(payload: Dict[str, Any]) -> Dict[str, Any]:
     try:
@@ -70,14 +61,12 @@ def create_patient(payload: Dict[str, Any]) -> Dict[str, Any]:
     except requests.RequestException as e:
         return {"ok": False, "error": str(e)}
 
-
 def update_patient(patient_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     try:
         resp = requests.put(f"{BASE_URL}/edit/{patient_id}", json=payload)
         return {"ok": resp.ok, "status_code": resp.status_code, "data": resp.json()}
     except requests.RequestException as e:
         return {"ok": False, "error": str(e)}
-
 
 def delete_patient(patient_id: str) -> Dict[str, Any]:
     try:
@@ -86,19 +75,12 @@ def delete_patient(patient_id: str) -> Dict[str, Any]:
     except requests.RequestException as e:
         return {"ok": False, "error": str(e)}
 
-
 def sort_patients(sort_by: str, order: str) -> Dict[str, Any]:
     try:
         resp = requests.get(f"{BASE_URL}/sort", params={"sort_by": sort_by, "order": order})
         return {"ok": resp.ok, "status_code": resp.status_code, "data": resp.json()}
     except requests.RequestException as e:
         return {"ok": False, "error": str(e)}
-
-
-###############
-# Utilities
-###############
-
 
 def calculate_bmi(weight: float, height: float) -> Optional[float]:
     try:
@@ -108,7 +90,6 @@ def calculate_bmi(weight: float, height: float) -> Optional[float]:
         return round(bmi, 2)
     except Exception:
         return None
-
 
 def bmi_verdict(bmi: Optional[float]) -> str:
     if bmi is None:
@@ -121,12 +102,6 @@ def bmi_verdict(bmi: Optional[float]) -> str:
         return "Overweight"
     return "Obese"
 
-
-###############
-# Pages
-###############
-
-
 def page_home() -> None:
     st.title("🏥 Patient Management System")
     st.markdown("Manage patient records using a FastAPI backend with a clean Streamlit dashboard.")
@@ -135,7 +110,7 @@ def page_home() -> None:
     col1, col2 = st.columns([3, 1])
     
     with col1:
-        st.subheader("✨ Features")
+        st.subheader(" Features")
         feat_col1, feat_col2, feat_col3 = st.columns(3)
         with feat_col1:
             st.write("✅ Create Patients")

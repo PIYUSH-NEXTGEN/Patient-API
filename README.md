@@ -1,45 +1,66 @@
-# Patient Management API
+# 🏥 Patient Management System
 
-A simple Patient Management REST API built with **FastAPI** as a learning project to explore backend development in Python.
+A full-stack Patient Management System built with **FastAPI** and **Streamlit**.
 
-The API allows users to create, retrieve, update, delete, and sort patient records. Patient data is stored in a JSON file, and the application uses Pydantic models for data validation and automatic documentation generation.
+Built as a learning project to explore Python backend and frontend development.
 
-## Features
+This project allows users to create, view, update, delete, and sort patient records through an interactive web interface.
+
+---
+
+## 🚀 Features
+
+### Backend (FastAPI)
 
 * Create new patient records
-* View patient details by ID
+* Retrieve patient details using Patient ID
 * Update existing patient information
 * Delete patient records
-* Sort patients by height, weight, or BMI
+* Sort patients by Height, Weight, or BMI
 * Automatic BMI calculation
-* BMI-based health verdict generation
+* BMI health verdict generation
 * Request validation using Pydantic
-* Interactive API documentation with Swagger UI
+* Interactive API documentation
 
-## Technologies Used
+### Frontend (Streamlit)
+
+* Patient search with ID format guidance
+* Create patient form
+* Update patient records
+* Delete patient records
+* Sort and analyze patient data
+* Backend status monitoring
+* Responsive and user-friendly layout
+
+---
+
+## 🛠️ Tech Stack
 
 * Python
 * FastAPI
 * Pydantic
 * Uvicorn
-* JSON
+* Streamlit
+* Pandas
 
-## Installation
 
-1. Clone the repository
+---
+## ⚙️ Installation
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Patient-API.git
+git clone https://github.com/PIYUSH-NEXTGEN/Patient-API.git
 cd Patient-API
 ```
 
-2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv myenv
 ```
 
-3. Activate the virtual environment
+### 3. Activate the Virtual Environment
 
 Windows:
 
@@ -47,13 +68,15 @@ Windows:
 myenv\Scripts\activate
 ```
 
-4. Install dependencies
+### 4. Install Dependencies
 
 ```bash
-pip install fastapi uvicorn pydantic
+pip install -r requirements.txt
 ```
 
-## Running the Application
+---
+
+## ▶️ Running the Backend
 
 Start the FastAPI server:
 
@@ -61,7 +84,7 @@ Start the FastAPI server:
 uvicorn main:app --reload
 ```
 
-The API will be available at:
+Backend URL:
 
 ```text
 http://127.0.0.1:8000
@@ -74,16 +97,50 @@ http://127.0.0.1:8000/docs
 ```
 
 
-## API Endpoints
+---
 
-| Method | Endpoint                 | Description                |
-| ------ | ------------------------ | -------------------------- |
-| GET    | `/`                      | Welcome message            |
-| GET    | `/about`                 | API information            |
-| GET    | `/patients/{patient_id}` | Get patient details        |
-| GET    | `/sort`                  | Sort patient records       |
-| POST   | `/create`                | Create a new patient       |
-| PUT    | `/edit/{patient_id}`     | Update patient information |
-| DELETE | `/delete/{patient_id}`   | Delete a patient           |
+## 🎨 Running the Frontend
 
-Built as a backend development learning project using FastAPI.
+In a new terminal:
+
+```bash
+streamlit run frontend.py
+```
+
+Frontend URL:
+
+Make sure the FastAPI backend is running before launching the frontend.
+
+---
+
+## 📌 API Endpoints
+
+| Method | Endpoint                 | Description          |
+| ------ | ------------------------ | -------------------- |
+| GET    | `/`                      | Welcome message      |
+| GET    | `/about`                 | API information      |
+| GET    | `/patients/{patient_id}` | View patient details |
+| GET    | `/sort`                  | Sort patient records |
+| POST   | `/create`                | Create patient       |
+| PUT    | `/edit/{patient_id}`     | Update patient       |
+| DELETE | `/delete/{patient_id}`   | Delete patient       |
+
+---
+
+## 🧮 Patient Data
+
+Each patient record contains:
+
+* Patient ID
+* Name
+* City
+* Age
+* Gender
+* Height
+* Weight
+* BMI
+* Health Verdict
+
+BMI and health verdicts are automatically calculated using patient height and weight.
+
+---

@@ -174,8 +174,9 @@ def page_create() -> None:
             age = st.number_input("Age", min_value=0, max_value=150, value=30)
             gender = st.selectbox("Gender", ["Male", "Female", "Other"])
         with col3:
-            height = st.number_input("Height (m)", min_value=0.0, format="%.2f", value=1.75)
-            weight = st.number_input("Weight (kg)", min_value=0.0, format="%.1f", value=70.0)
+            # Provide explicit step values so the + / - buttons increment correctly
+            height = st.number_input("Height (m)", min_value=0.0, format="%.2f", value=1.75, step=0.01)
+            weight = st.number_input("Weight (kg)", min_value=0.0, format="%.1f", value=70.0, step=0.1)
 
         submitted = st.form_submit_button("✅ Create Patient")
 
@@ -218,8 +219,12 @@ def render_patient_card(data: Dict[str, Any]) -> None:
     weight = data.get("weight", None)
     city = data.get("city", "—")
     bmi = None
-    if height and weight:
-        bmi = calculate_bmi(float(weight), float(height))
+    # Guard against None values; only attempt conversion when both are not None
+    if height is not None and weight is not None:
+        try:
+            bmi = calculate_bmi(float(weight), float(height))
+        except Exception:
+            bmi = None
 
     # Use columns and metrics for cleaner display
     st.subheader(f"👤 {name}")
@@ -233,12 +238,21 @@ def render_patient_card(data: Dict[str, Any]) -> None:
 
     with st.expander("📋 Full Details"):
         verdict = bmi_verdict(bmi)
+        # Show a full list of patient fields so nothing is hidden in the details view
         detail_cols = st.columns(2)
-        with detail_cols[0]:
-            st.write(f"**Weight (kg):** {weight}")
-            st.write(f"**BMI Verdict:** {verdict}")
-        with detail_cols[1]:
-            st.write(f"**Patient ID:** {data.get('id', '—')}")
+        left = detail_cols[0]
+        right = detail_cols[1]
+
+        left.write(f"**Patient ID:** {data.get('id', '—')}")
+        left.write(f"**Name:** {name}")
+        left.write(f"**Age:** {age}")
+        left.write(f"**Gender:** {gender}")
+        left.write(f"**City:** {city}")
+
+        right.write(f"**Height (m):** {height if height is not None else '—'}")
+        right.write(f"**Weight (kg):** {weight if weight is not None else '—'}")
+        right.write(f"**BMI:** {bmi if bmi is not None else '—'}")
+        right.write(f"**BMI Verdict:** {verdict}")
 
 
 def page_view() -> None:

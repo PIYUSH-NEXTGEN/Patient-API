@@ -8,7 +8,7 @@ This project allows users to create, view, update, delete, and sort patient reco
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### Backend (FastAPI)
 
